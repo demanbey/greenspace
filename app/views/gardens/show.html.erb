@@ -1,7 +1,8 @@
+<div class="cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @garden.photo, crop: :fill unless @garden.photo.blank? %>');">;
+  <h1><%= @garden.name %> </h1>
+</div>
+
 <div>
-  <div>
-    <h1><%= @garden.name %> </h1>
-  </div>
   <div>
     <p><%= @garden.description %></p>
   </div>
@@ -17,9 +18,12 @@
   <div>
     <%#= cl_image_tag("abandoned_house_graffiti_urbex_pirou_rurex_plant_ruins-794707_ar4pcs.jpg"), width: 400, height: 300, crop: :fill)%>
   </div>
+
+  <div>
+    <p>Map will go here</p>
+  </div>
+
 </div>
-
-
 
 
 <%= link_to "Keep walking", gardens_path%>
