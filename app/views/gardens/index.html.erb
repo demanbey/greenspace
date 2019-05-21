@@ -5,7 +5,7 @@
         <h3 class="browse-header"><strong>Search Results</strong></h3>
       </div>
       <div class="cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">;
-        <% @garden.each do |garden| %>
+        <% @gardens.each do |garden| %>
             <h2><%= link_to garden.name, garden_path(garden.id) %></h2>
           </div>
         <% end %>

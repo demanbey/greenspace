@@ -12,14 +12,17 @@
     <p><%= @garden.size %></p>
   </div>
   <div>
-    <p><%= @garden.type %></p>
+    <p><%= @garden.category %></p>
+  </div>
+  <div>
+    <%= cl_image_tag("abandoned_house_graffiti_urbex_pirou_rurex_plant_ruins-794707_ar4pcs.jpg"), width: 400, height: 300, crop: :fill)%>
   </div>
 </div>
 
 
 
 
-<%= link_to "Kepp walking", gardens_path%>
+<%= link_to "Keep walking", gardens_path%>
 
 
 
