@@ -26,7 +26,7 @@ class GardensController < ApplicationController
 
   def update
     if @garden.update(garden_params)
-      redirect_to garden_path
+      redirect_to garden_path(@garden) # ! double check
     else
       render :edit
     end
