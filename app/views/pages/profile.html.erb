@@ -1,12 +1,12 @@
 <div>
   <div>
-    <h1><%= @user.first_name %> <%= @user.last_name %> </h1>
+    <h1><%= current_user.first_name %> <%= current_user.last_name %> </h1>
   </div>
   <div>
-    <p><%= @user.email %></p>
+    <p><%= current_user.email %></p>
   </div>
   <div>
-    <p><%= @user.description %></p>
+    <p><%= current_user.description %></p>
   </div>
 </div>
 
