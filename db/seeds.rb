@@ -14,7 +14,7 @@ Garden.new(
   location: "123 Queensland",
   size: "300 acres",
   photo: "nature_dog_forest_animal_puppy_summer_outdoors_walking-489173_cr0u68",
-  type: "plot"
+  category: "plot"
 )
 
 Garden.new(
@@ -24,5 +24,5 @@ Garden.new(
   location: "666 Dirty City Place",
   size: ".25 acres",
   photo: "abandoned_house_graffiti_urbex_pirou_rurex_plant_ruins-794707_ar4pcs",
-  type: "rooftop"
+  category: "rooftop"
 )
