@@ -1,12 +1,11 @@
 <div>
 <h1>Help Make Your City Green</h1>
 </div>
-<<h2> please dont forget to add a name migration to garden</h2>
 <div>
  <%= simple_form_for [@garden] do |f| %>
 
     <%= f.input :description %>
-    <%= f.input :capactiy %>
+    <%= f.input :capacity %>
     <%= f.input :location %>
     <%= f.input :size %>
     <%= f.input :category, collection: ["rooftop", "plot", "vegtable", "private"] %>
