@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="search-show-header">
+    <h3 class="browse-header"><strong>Search Results</strong></h3>
+  </div>
+  <div class="cards">
+    <% @garden.each do |garden| %>
+        <h2><%= link_to garden.name, garden_path(garden.id) %></h2>
+      </div>
+    <% end %>
+  </div>
+</div>
