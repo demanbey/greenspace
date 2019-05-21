@@ -1,0 +1,17 @@
+<div>
+<h1>Help Make Your City Green</h1>
+</div>
+<<h2> please dont forget to add a name migration to garden</h2>
+<div>
+ <%= simple_form_for [@garden] do |f| %>
+
+    <%= f.input :description %>
+    <%= f.input :capactiy %>
+    <%= f.input :location %>
+    <%= f.input :size %>
+    <%= f.input :type, collection: ["rooftop", "plot", "vegtable", "private"] %>
+  <div>
+  <%= f.submit "lets get planting", class: "btn btn-primary" %>
+  <% end %>
+  </div>
+</div>

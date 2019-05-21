@@ -1,0 +1,15 @@
+<h1>Become A Garden Gaurdian!</h1>
+<h2>Like This Guy!</h2>
+<img src="/ images/KingGuardian.jpg" alt="long may he reign">
+<div>
+ <%= simple_form_for [@garden] do |f| %>
+
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+
+  <div>
+  <%= f.submit "lets get planting", class: "btn btn-primary" %>
+  <% end %>
+  </div>
+</div>
