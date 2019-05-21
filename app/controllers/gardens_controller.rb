@@ -1,4 +1,5 @@
 class GardensController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :set_garden, only: %i[show edit update destroy]
 
   def index
@@ -14,6 +15,7 @@ class GardensController < ApplicationController
 
   def create
     @garden = Garden.new(garden_params)
+    @garden.user = current_user
     if @garden.save
       redirect_to garden_path(@garden) # ! double check
     else
@@ -43,6 +45,6 @@ class GardensController < ApplicationController
   end
 
   def garden_params
-    params.require(:garden).permit(:name, :description, :capacity, :location, :size, :photo, :category)
+    params.require(:garden).permit(:name, :description, :capacity, :location, :size, :photo, :photo_cache, :category)
   end
 end
