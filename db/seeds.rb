@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Garden.new(
+Garden.create(
   name: "The Queen's Lace",
   description: "need help planting",
   capacity: 15,
@@ -17,7 +17,7 @@ Garden.new(
   category: "plot"
 )
 
-Garden.new(
+Garden.create(
   name: "Madeline's Messy Backyard",
   description: "want some veg and space to hang",
   capacity: 3,
