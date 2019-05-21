@@ -1,7 +1,7 @@
 class Garden < ApplicationRecord
-  belongs_to :user
-  has_many :users, through: :booking
   has_many :bookings, dependent: :destroy
+  has_many :users, through: :booking
+  belongs_to :user
 
   validates :location, presence: true
   validates :category, presence: true
