@@ -4,6 +4,6 @@ class Garden < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   validates :location, presence: true
-  validates :type, presence: true
-  validates :description, presence: true, length: { minimum: 100 }
+  validates :category, presence: true
+  validates :description, presence: true, length: { minimum: 10 }
 end

@@ -5,7 +5,7 @@ class CreateGardens < ActiveRecord::Migration[5.2]
       t.integer :capacity
       t.string :location
       t.string :size
-      t.string :type
+      t.string :category
       t.references :user, foreign_key: true
 
       t.timestamps
