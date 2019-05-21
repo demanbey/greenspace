@@ -1,16 +1,26 @@
 <div class="container">
-  <div class="row"
+  <div class="row">
     <div class="col-sm-12 col-md-7">
       <div class="search-show-header">
         <h3 class="browse-header"><strong>Search Results</strong></h3>
       </div>
-        <div class="cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%#= cl_image_path @garden.photo, height: 300, width: 400, crop: :fill unless @garden.photo.blank? %>')">
-          <% @gardens.each do |garden| %>
-              <h2><%= link_to garden.name, garden_path(garden.id) %></h2>
-          <% end %>
+
+      <div class="card-trip">
+        <% @gardens.each do |garden| %>
+        <%= cl_image_tag garden.photo, height: 600, width: 400, crop: :fill unless garden.photo.blank? %>')">
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= garden.name %></h2>
+            <p><%= garden.category %></p>
+            <p><%= garden.description %></p>
+            <p><%= garden.bookings.count %></p>
+          </div>
+          <h2 class="card-trip-pricing">£99.99</h2>
+          <%= cl_image_tag garden.user_id %>, class="card-trip-user avatar-bordered"
         </div>
+        <%= link_to garden.name, garden_path(garden.id) %>
+        <% end %>
       </div>
-    </div>
 
     <div class="col-sm-12 col-md-1">
     </div>
