@@ -6,8 +6,8 @@
     <p><%= current_user.email %></p>
   </div>
   <div>
-     <%= current_user.photo unless current_user.photo.nil? %>
-    <%= link_to "Edit profile", edit_user_path(current_user) %>
+     <%= cl_image_tag current_user.photo, width: 100 unless current_user.photo.nil? %>
+    <%= link_to "Edit profile", edit_user_registration_path(current_user) %>
 </div>
 
 <% current_user.gardens.each do |garden| %>
