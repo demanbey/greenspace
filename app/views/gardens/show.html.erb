@@ -1,5 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @garden.photo, crop: :fill unless @garden.photo.blank? %>');">
   <h1><%= @garden.name %> </h1>
+  <%= link_to "Participate!", garden_bookings_path(@garden), method: :post, class: "btn btn-primary", id: "participate-btn"%>
 </div>
 
 <div>

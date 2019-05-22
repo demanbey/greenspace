@@ -13,12 +13,10 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    if @booking.save
-      redirect_to user_path # ! double check
-    else
-      render :new
-    end
+    @booking = Booking.new
+    @booking.user_id = current_user.id
+    @booking.garden_id = params[:garden_id]
+    @booking.save
   end
 
   def edit
@@ -42,7 +40,4 @@ class BookingsController < ApplicationController
     @booking = booking.find(params[:id])
   end
 
-  def booking_params
-    params.require(:booking).permit(:approved)
-  end
 end
