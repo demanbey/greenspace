@@ -1,33 +1,44 @@
 <div>
-  <div>
-    <h1><%= current_user.first_name %> <%= current_user.last_name %> </h1>
-  </div>
+
+    <div>
+      <h1><%= current_user.first_name %> <%= current_user.last_name %> </h>
+    </div>
   <div>
     <p><%= current_user.email %></p>
   </div>
   <div>
-     <%= cl_image_tag current_user.photo, width: 100 unless current_user.photo.nil? %>
-    <%= link_to "Edit profile", edit_user_registration_path(current_user) %>
+
+     <%= current_user.photo unless current_user.photo.nil? %>
+    <%= link_to "Edit profile", edit_user_path(current_user) %>
+  </div>
+  <div class='card-container'>
+    <% current_user.gardens.each do |garden| %>
+      <div class="card-profile">
+      <div class="card-profile-infos">
+        <img src="/ass">
+        <h2><%= garden.name %></h2>
+        <p> <%= truncate(garden.description, length: 100) %></p>
+        <a href="#" class="btn btn-primary">check it out!</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+ <div class='container'>
+  <h1>Booked Gardens</h1>
+  <% current_user.bookings.each do |booking| %>
+  <div class="card-profile">
+    <div class="card-profile-infos">
+      <img src="#">
+      <h2><%= booking.garden.name %></h2>
+      <a href="#" class="btn btn-primary">check it out!</a>
+      </div>
+</div>
+  <% end %>
 </div>
 
-<% current_user.gardens.each do |garden| %>
-  <p> <%= garden.name %> </p>
-  <p> <%= garden.description %> </p>
-  <p> <%= garden.capacity %> </p>
-  <p> <%= garden.location %> </p>
-  <p> <%= garden.size %> </p>
-  <p> <%= garden.category %> </p>
-<% end %>
-
-<h1>BREAK</h1>
-
-<% current_user.bookings.each do |booking| %>
-  <p> <%= booking.garden.name %> </p>
-  <p> <%= booking.garden.photo %> </p>
-  <p> <%= booking.garden.description %> </p>
-  <p> <%= booking.approved %> </p>
-<% end %>
-
-
-<%= link_to "Search", gardens_path%>
-<%= link_to "Post a green space", new_garden_path%>
+  <%= link_to "edit profile", edit_user_path%>
+  <%= link_to "Search", gardens_path%>
+  <%= link_to "Post a green space", new_garden_path%>
+  </div>
