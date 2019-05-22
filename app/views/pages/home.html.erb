@@ -1,32 +1,29 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1553481839-a18af44d1355?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);">
   <div class="container">
     <h1><strong>GreenSpace</strong></h1>
-    <p>Share land with your community or find a garden to contribute. </p>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-    <!-- a simple form to search in your area -->
-
-        </div>
-      </div>
-    </div>
-
+    <br>
+    <h1 class="ml12">Share land with your community. <br>Find a garden to contribute.</h1>
+    <br>
+    <br>
     <%= link_to "Search for spaces", gardens_path, class: 'btn btn-primary' %>
   </div>
 </div>
 
-
-<div class="container garden-list">
+<div class="garden-list">
   <div class="garden-header">
     <h3 class="browse-header"><strong>Browse featured gardens</strong></h3>
     <p>Montreal, Quebec</p>
   </div>
   <div class="cards">
     <% @gardens.each do |garden| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('<%= cl_image_path garden.photo, width: 400, height: 300, crop: :fill unless garden.photo.blank? %>');">
-        <h4><%= link_to garden.name, garden_path(garden.id), class: "garden-name" %></h4>
-      </div>
+      <%= link_to(garden_path(garden.id), class: "card") do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('<%= cl_image_path garden.photo, width: 400, height: 300, crop: :fill unless garden.photo.blank? %>');">
+          <h4 class="text-center"><%= garden.name %></h4>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
