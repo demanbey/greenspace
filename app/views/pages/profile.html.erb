@@ -1,15 +1,15 @@
 <div>
 
-    <div>
-      <h1><%= current_user.first_name %> <%= current_user.last_name %> </h>
-    </div>
+  <div>
+    <h1><%= current_user.first_name %> <%= current_user.last_name %> </h>
+  </div>
   <div>
     <p><%= current_user.email %></p>
   </div>
   <div>
 
-     <%= current_user.photo unless current_user.photo.nil? %>
-    <%= link_to "Edit profile", edit_user_path(current_user) %>
+  <%= current_user.photo unless current_user.photo.nil? %>
+  <%= link_to "Edit profile", edit_user_path(current_user) %>
   </div>
   <div class='card-container'>
     <% current_user.gardens.each do |garden| %>
@@ -17,7 +17,7 @@
         <div class="card-profile">
         <div class="card-profile-infos">
           <img src="/ass">
-          <h2><%= garden.name %></h2>
+          <h2> <%= garden.name %> </h2>
           <p> <%= truncate(garden.description, length: 100) %></p>
           <a href="#" class="btn btn-primary">check it out!</a>
           </div>
@@ -28,12 +28,12 @@
 
  <div class='container'>
   <h1>Booked Gardens</h1>
-  <% current_user.bookings.each do |booking| %>
+  <% current_user.gardens.each do |garden| %>
     <% unless garden.user_id == current_user.id %>
       <div class="card-profile">
         <div class="card-profile-infos">
           <img src="#">
-          <h2><%= booking.garden.name %></h2>
+          <h2><%= garden.name %></h2>
           <a href="#" class="btn btn-primary">check it out!</a>
           </div>
       </div>
