@@ -28,9 +28,10 @@
 
 </div>
 
-<%# if current_user == garden.user %>
-  <%#= link_to "update page", edit_garden_path %>
-  <%# end %>
+<% if current_user == @garden.user %>
+  <%= link_to "update garden", edit_garden_path, class: "btn btn-primary" %>
+  <%= link_to "remove garden", garden_path, method: :delete, class: "btn btn-danger" %>
+<% end %>
 
 <%= link_to "Search for other spaces", gardens_path%>
 
