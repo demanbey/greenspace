@@ -9,8 +9,8 @@
 Garden.destroy_all
 User.destroy_all
 
-erik = User.new(first_name: "erik", last_name: "pong", email: "emailerik@email.com", password: "123456")
-aaron = User.create!(first_name: "aaron", last_name: "chong", email: "emailaaron@email.com", password: "123456")
+erik = User.new(first_name: "Erik", last_name: "Pong", email: "emailerik@email.com", password: "123456")
+aaron = User.create!(first_name: "Aaron", last_name: "Chong", email: "emailaaron@email.com", password: "123456")
 
 erik.remote_photo_url = "https://lh3.googleusercontent.com/-FqOP9ADmAUU/W04mHOMxzyI/AAAAAAAAABw/VlrHRB759PIx2SRuysFlMn0N8u7jpBqVQCEwYBhgL/w280-h280-p/ERik.png"
 erik.save
@@ -34,7 +34,7 @@ erik_roof = Garden.new(
   name: "Extra space on Erik's roof",
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste fuga quis neque earum optio deleniti qui corporis odio nobis et, necessitatibus maxime placeat voluptatum quaerat amet tempore corrupti. Repellat, minus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex assumenda, aperiam quaerat reiciendis. Quasi sit illum, repellat voluptatum mollitia in ipsa ab? Cum molestias nemo asperiores, numquam perspiciatis nihil unde.",
   capacity: 3,
-  location: "4400 Boyer Avenue, Montreal",
+  location: "5333 Casgrain Ave Montreal, QC",
   size: ".1 acres",
   category: "in progress",
   user: erik
