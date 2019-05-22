@@ -4,12 +4,12 @@
 <div>
  <%= simple_form_for [@garden] do |f| %>
 
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :capacity %>
+    <%= f.input :name, label: 'Short description of the space - what are its main features? (100 characters or less)' %>
     <%= f.input :location %>
     <%= f.input :size %>
-    <%= f.input :category, collection: ["rooftop", "plot", "private", "vegetable only"] %>
+    <%= f.input :category, collection: ["Plot", "In Progress"] %>
+    <%= f.input :description, label: 'Give a detailed description.' %>
+    <%= f.input :capacity, label: 'How many people can contribute?' %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
   <div>

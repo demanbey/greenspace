@@ -6,8 +6,8 @@
     <p><%= current_user.email %></p>
   </div>
   <div>
-    <p><%= current_user.description %></p>
-  </div>
+     <%= current_user.photo unless current_user.photo.nil? %>
+    <%= link_to "Edit profile", edit_user_path(current_user) %>
 </div>
 
 <% current_user.gardens.each do |garden| %>
@@ -29,5 +29,5 @@
 <% end %>
 
 
-<%= link_to "Keep walking", gardens_path%>
+<%= link_to "Search", gardens_path%>
 <%= link_to "Post a green space", new_garden_path%>
