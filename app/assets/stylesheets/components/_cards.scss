@@ -9,7 +9,6 @@
 }
 
 
-
 .card-product img {
   height: 100%;
   width: 120px;
@@ -93,18 +92,17 @@
   display: flex;
   justify-content: space-evenly;
 }
+
 .card-profile {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: inline-flex;
   align-items: center;
-
   padding: 10px;
   margin: 7px;
   width: 300px;
 }
-
 
 
 .card-profile img {
@@ -129,4 +127,5 @@
 
 .card-profile .card-profile-infos {
   padding: 16px;
+}
 }
