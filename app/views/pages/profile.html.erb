@@ -1,46 +1,53 @@
-<div>
+<div class='container'>
+  <div class='opener'>
+    <div>
+      <img class="avatar-large" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+    </div>
+    <div>
+      <h1><%= current_user.first_name %> <%= current_user.last_name %></h>
+    </div>
+    <div>
+      <p><%= current_user.email %></p>
+    </div>
+    <div>
+      <%= current_user.photo unless current_user.photo.nil? %>
+      <%= link_to "Edit profile", edit_user_registration_path(current_user), class: 'btn btn-success' %>
+    </div>
+  </div>
 
-  <div>
-    <h1><%= current_user.first_name %> <%= current_user.last_name %> </h>
-  </div>
-  <div>
-    <p><%= current_user.email %></p>
-  </div>
-  <div>
+  <hr>
 
-  <%= current_user.photo unless current_user.photo.nil? %>
-  <%= link_to "Edit profile", edit_user_registration_path(current_user) %>
-  </div>
+  <h2>My Gardens</h2>
   <div class='card-container'>
     <% current_user.gardens.each do |garden| %>
       <% if garden.user_id == current_user.id %>
         <div class="card-profile">
-        <div class="card-profile-infos">
-          <%= cl_image_tag garden.photo %>
-          <h2> <%= garden.name %> </h2>
-          <p> <%= truncate(garden.description, length: 100) %></p>
-          <%= link_to "check it out!", garden_path(garden), class: "btn btn-primary" %>
+          <div class="card-profile-infos">
+            <%= cl_image_tag garden.photo %>
+            <h2> <%= garden.name %> </h2>
+            <p> <%= truncate(garden.description, length: 100) %></p>
+            <%= link_to "check it out!", garden_path(garden), class: "btn btn-primary" %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
+  <hr>
 
- <div class='container'>
-  <h1>Booked Gardens</h1>
-  <% current_user.gardens.each do |garden| %>
-    <% unless garden.user_id == current_user.id %>
-      <div class="card-profile">
-        <div class="card-profile-infos">
-          <%= cl_image_tag garden.photo %>
-          <h2><%= garden.name %></h2>
-          <%= link_to "check it out!", garden_path(garden), class: "btn btn-primary" %>
+  <h2 class='booking-heading'>Booked Gardens</h2>
+
+  <div class='card-container'>
+    <% current_user.gardens.each do |garden| %>
+      <% unless garden.user_id == current_user.id %>
+        <div class="card-profile">
+          <div class="card-profile-infos">
+            <%= cl_image_tag garden.photo %>
+            <h2><%= garden.name %></h2>
+            <%= link_to "check it out!", garden_path(garden), class: "btn btn-primary" %>
           </div>
-      </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+ <%= link_to "Book a Garden", gardens_path, class: 'btn btn-primary'%>
 </div>
-
-  <%= link_to "Search", gardens_path%>
-  <%= link_to "Post a green space", new_garden_path%>
-  </div>
