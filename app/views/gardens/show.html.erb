@@ -1,6 +1,9 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @garden.photo, crop: :fill unless @garden.photo.blank? %>');">
   <h1><%= @garden.name %> </h1>
+  <%= link_to "Participate!", garden_bookings_path(@garden), method: :post, class: "btn btn-primary", id: "participate-btn"%>
 </div>
+
+<div class="container">
 
 <div>
   <div>
@@ -25,11 +28,14 @@
 
 </div>
 
-<%# if current_user == garden.user %>
-  <%#= link_to "update page", edit_garden_path %>
-  <%# end %>
+<% if current_user == @garden.user %>
+  <%= link_to "update garden", edit_garden_path, class: "btn btn-primary" %>
+  <%= link_to "remove garden", garden_path, method: :delete, class: "btn btn-danger" %>
+<% end %>
 
 <%= link_to "Search for other spaces", gardens_path%>
+
+</div>
 
 
 

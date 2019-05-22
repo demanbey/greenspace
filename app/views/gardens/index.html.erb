@@ -1,33 +1,30 @@
 <div class="container">
-  <h5>Edit search criteria</h5>
+ <!--  <h5>TO DO Edit search criteria</h5> -->
   <div class="row">
     <div class="col-sm-12 col-md-7">
       <% @gardens.each do |garden| %>
         <div class="card-product">
-        <%= cl_image_tag garden.photo, height: 600, width: 400, crop: :fill unless garden.photo.blank? %>
-        <div class="card-product-infos">
-          <h2><strong><%= link_to garden.name, garden_path(garden.id) %></strong></h2>
-          <p>Type of land available: <%= garden.category %></p>
-          <p>Size: <%= garden.size %> acre</p>
+          <%= cl_image_tag garden.photo, height: 600, width: 400, crop: :fill unless garden.photo.blank? %>
+          <div class="card-product-infos">
+            <h2><strong><%= link_to garden.name, garden_path(garden.id) %></strong></h2>
+            <p>Type of land available: <%= garden.category %></p>
+            <p>Size: <%= garden.size %></p>
+          </div>
         </div>
-      </div>
-      <br>
+        <br>
       <% end %>
     </div>
 
-  <div class="col-sm-12 col-md-1">
-    <div class="map">
-      <div class="col-sm-12 col-md-4">
-        <!-- map here -->
-        <div
-          id="map"
-          style="width: 100%;
-          height: 600px;"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-        ></div>
-
-      </div>
+    <div class="col-sm-12 col-md-5">
+      <div
+        id="map"
+        style="width: 100%;
+        height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
     </div>
   </div>
 </div>
+
+
