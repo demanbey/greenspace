@@ -23,7 +23,7 @@
   </div>
   <div class="cards">
     <% @gardens.each do |garden| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path garden.photo, width: 400, height: 300, crop: :fill unless garden.photo.blank? %>');">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('<%= cl_image_path garden.photo, width: 400, height: 300, crop: :fill unless garden.photo.blank? %>');">
         <h4><%= link_to garden.name, garden_path(garden.id), class: "garden-name" %></h4>
       </div>
     <% end %>

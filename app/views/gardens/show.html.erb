@@ -1,46 +1,57 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @garden.photo, crop: :fill unless @garden.photo.blank? %>');">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('<%= cl_image_path @garden.photo, crop: :fill unless @garden.photo.blank? %>');">
 
-  <h1><%= @garden.name %> </h1>
-  <br>
-  <p> Current Participants: <%= Booking.where(garden_id: @garden.id).count %>
-    of <%= @garden.capacity %>
-  <br>
-  </p>
-  <%= link_to "Participate!", garden_bookings_path(@garden), method: :post, class: "btn btn-primary", id: "participate-btn"%>
+<!--   <h1><%= @garden.name %> </h1>
+  <br> -->
+  <%#= link_to "Participate!", garden_bookings_path(@garden), method: :post, class: "btn btn-primary", id: "participate-btn"%>
 
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8">
+    <div class="col-sm-12 col-md-7">
       <h1><%= @garden.name %> </h1>
       <p><%= @garden.location %></p>
-      <div class="show-description">
-        <p><%= @garden.description %></p>
+      <div class="garden-category">
+          <% if @garden.category == "in progress" %>
+          <h5><strong><%= "Garden is in progress!" %></strong></h5>
+          <% else %>
+          <h5><strong><%= "Land is available for you to start growing on!" %></strong></h5>
+          <% end %>
+        <div class="show-description">
+          <p><%= @garden.description %></p>
+        </div>
       </div>
       <div>
-        <p><%= @garden.capacity %></p>
-      </div>
-      <div>
-        <p><%= @garden.size %></p>
-      </div>
-      <div>
-        <p><%= @garden.category %></p>
+        <p><strong>Size of land: </strong><%= @garden.size %></p>
       </div>
 
       <% if current_user == @garden.user %>
         <%= link_to "update garden", edit_garden_path, class: "btn btn-primary" %>
         <%= link_to "remove garden", garden_path, method: :delete, class: "btn btn-danger" %>
       <% end %>
+      <br>
+      <%= link_to "Search for similar spaces", gardens_path, class: "btn btn-primary"%>
+    </div>
 
-      <%= link_to "Search for other spaces", gardens_path%>
+    <div class="col-sm-12 col-md-1">
     </div>
 
     <div class="col-sm-12 col-md-4">
 
-       <%= link_to "Request to Participate", garden_bookings_path(@garden), method: :post, class: "btn btn-primary", id: "participate-btn"%>
-    </div>
+      <h5> Current Participants: <%= Booking.where(garden_id: @garden.id).count %>
+        of <%= @garden.capacity %>
+      </h5>
 
+         <%= link_to "Request to Participate", garden_bookings_path(@garden), method: :post, class: "btn btn-primary", id: "participate-btn"%>
+      <div class="owner">
+        <h4>Owned by:</h4>
+        <%= cl_image_tag @garden.user.photo, width: 300, crop: :fill, class: "avatar large" %>
+        <%= @garden.user.first_name %> <%= @garden.user.last_name %>
+        <br>
+        <%= @garden.user.description unless @garden.user.description.nil? %>
+      </div>
+
+    </div>
 
 
   </div>
