@@ -3,7 +3,16 @@ class GardensController < ApplicationController
   before_action :set_garden, only: %i[show edit update destroy]
 
   def index
-    @gardens = Garden.all
+    @gardens = Garden.where.not(latitude: nil, longitude: nil)
+
+    @markers = @gardens.map do |garden|
+      {
+        lat: garden.latitude,
+        lng: garden.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { garden: garden })
+        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      }
+    end
   end
 
   def show

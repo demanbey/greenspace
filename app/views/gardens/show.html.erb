@@ -1,4 +1,4 @@
-<div class="cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @garden.photo, crop: :fill unless @garden.photo.blank? %>');">;
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @garden.photo, crop: :fill unless @garden.photo.blank? %>');">
   <h1><%= @garden.name %> </h1>
 </div>
 
@@ -25,8 +25,11 @@
 
 </div>
 
+<%# if current_user == garden.user %>
+  <%#= link_to "update page", edit_garden_path %>
+  <%# end %>
 
-<%= link_to "Keep walking", gardens_path%>
+<%= link_to "Search for other spaces", gardens_path%>
 
 
 

@@ -14,35 +14,35 @@ aaron = User.create!(first_name: "aaron", last_name: "chong", email: "emailaaron
 
 
 queen_garden = Garden.create!(
-  name: "The Queen's Lace",
-  description: "need help planting dlasdfasdfafffffffffffffffffffffffffffffffkdfkldlkdlkdldldslkadlkasdflkasldfksaldkfaslkfjasldkf",
+  name: "Small plot of land in backyard with lots of sun",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis et provident voluptatibus hic quo corrupti sapiente, cum. Quos commodi, culpa, voluptates ipsam officia asperiores vero quae natus animi sequi quasi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere cupiditate impedit, minima eum, veritatis, doloremque perspiciatis tempore, unde inventore praesentium autem rem adipisci totam beatae odio quae modi sint quas?",
   capacity: 15,
-  location: "123 Queensland",
-  size: "300 acres",
+  location: "4136 Avenue de l'Hotel de Ville",
+  size: ".25 acres",
   photo: "nature_dog_forest_animal_puppy_summer_outdoors_walking-489173_cr0u68",
   category: "plot",
   user: erik
 )
 
 madeline_garden = Garden.create!(
-  name: "Madeline's Messy Backyard",
-  description: "want some veg and space to hang alsdkasdfffffffffffffffffffffffffffffffffffffffffffjsalkdfjsalfkjslfkjdslkfjaslfkjsdalfksd",
+  name: "Extra space on my roof",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste fuga quis neque earum optio deleniti qui corporis odio nobis et, necessitatibus maxime placeat voluptatum quaerat amet tempore corrupti. Repellat, minus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex assumenda, aperiam quaerat reiciendis. Quasi sit illum, repellat voluptatum mollitia in ipsa ab? Cum molestias nemo asperiores, numquam perspiciatis nihil unde.",
   capacity: 3,
-  location: "666 Dirty City Place",
-  size: ".25 acres",
+  location: "4400 Boyer Avenue",
+  size: ".1 acres",
   photo: "abandoned_house_graffiti_urbex_pirou_rurex_plant_ruins-794707_ar4pcs",
-  category: "rooftop",
+  category: "in progress",
   user: erik
 )
 
 ben_garden = Garden.create!(
-  name: "Ben's Backyard",
-  description: "aasdwwwwwwwwwwwwwwwweeeeeeeeeeeeeeeeeeeeeeeefffffffffffffffffffffjsalkdfjsalfkjslfkjdslkfjaslfkjsdalfksd",
+  name: "Looking for help with vegetable garden",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore placeat magni numquam, reprehenderit doloribus quia voluptas illum recusandae rem, sunt tenetur commodi earum quisquam quam est in assumenda nesciunt nisi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero vero doloremque dicta, est ipsa quas dolorum, corporis facilis, sed beatae perferendis minus assumenda dolore voluptas quam dignissimos quis quisquam ea!",
   capacity: 10,
-  location: "1010 Ouch Street",
+  location: "4200 Laurier Avenue",
   size: "1 acre",
   photo: "/assets/images/KingGuardian.jpg",
-  category: "rooftop",
+  category: "in progress",
   user: aaron
 )
 
