@@ -9,17 +9,17 @@
   <div>
 
   <%= current_user.photo unless current_user.photo.nil? %>
-  <%= link_to "Edit profile", edit_user_path(current_user) %>
+  <%= link_to "Edit profile", edit_user_registration_path(current_user) %>
   </div>
   <div class='card-container'>
     <% current_user.gardens.each do |garden| %>
       <% if garden.user_id == current_user.id %>
         <div class="card-profile">
         <div class="card-profile-infos">
-          <img src="/ass">
+          <%= cl_image_tag garden.photo %>
           <h2> <%= garden.name %> </h2>
           <p> <%= truncate(garden.description, length: 100) %></p>
-          <a href="#" class="btn btn-primary">check it out!</a>
+          <%= link_to "check it out!", garden_path(garden), class: "btn btn-primary" %>
           </div>
         <% end %>
       </div>
@@ -32,16 +32,15 @@
     <% unless garden.user_id == current_user.id %>
       <div class="card-profile">
         <div class="card-profile-infos">
-          <img src="#">
+          <%= cl_image_tag garden.photo %>
           <h2><%= garden.name %></h2>
-          <a href="#" class="btn btn-primary">check it out!</a>
+          <%= link_to "check it out!", garden_path(garden), class: "btn btn-primary" %>
           </div>
       </div>
     <% end %>
   <% end %>
 </div>
 
-  <%= link_to "edit profile", edit_user_path%>
   <%= link_to "Search", gardens_path%>
   <%= link_to "Post a green space", new_garden_path%>
   </div>
