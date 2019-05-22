@@ -5,12 +5,12 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 initMapbox();
 
-const clicked = document.querySelector("#participate-btn")
-if (clicked !== null) {
-  clicked.addEventListener("click", (event) => {
-    clicked.innerHTML = "Booked!"
-  })
-}
+// const clicked = document.querySelector("#participate-btn")
+// if (clicked !== null) {
+//   clicked.addEventListener("click", (event) => {
+//     clicked.innerHTML = "Booked!"
+//   })
+// }
 
 
 // Wrap every letter in a span
