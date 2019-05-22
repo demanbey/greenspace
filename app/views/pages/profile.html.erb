@@ -10,22 +10,27 @@
     <%= link_to "Edit profile", edit_user_registration_path(current_user) %>
 </div>
 
+<h3>My Gardens</h3>
+
 <% current_user.gardens.each do |garden| %>
-  <p> <%= garden.name %> </p>
-  <p> <%= garden.description %> </p>
-  <p> <%= garden.capacity %> </p>
-  <p> <%= garden.location %> </p>
-  <p> <%= garden.size %> </p>
-  <p> <%= garden.category %> </p>
+  <% if garden.user_id == current_user.id %>
+    <p> <%= garden.name %> </p>
+    <p> <%= garden.description %> </p>
+    <p> <%= garden.capacity %> </p>
+    <p> <%= garden.location %> </p>
+    <p> <%= garden.size %> </p>
+    <p> <%= garden.category %> </p>
+  <% end %>
 <% end %>
 
-<h1>BREAK</h1>
+<h3>Booked Gardens</h3>
 
-<% current_user.bookings.each do |booking| %>
-  <p> <%= booking.garden.name %> </p>
-  <p> <%= booking.garden.photo %> </p>
-  <p> <%= booking.garden.description %> </p>
-  <p> <%= booking.approved %> </p>
+<% current_user.gardens.each do |garden| %>
+  <% unless garden.user_id == current_user.id %>
+    <p> <%= garden.name %> </p>
+    <p> <%= garden.photo %> </p>
+    <p> <%= garden.description %> </p>
+  <% end %>
 <% end %>
 
 
