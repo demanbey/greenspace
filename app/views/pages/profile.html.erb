@@ -13,28 +13,31 @@
   </div>
   <div class='card-container'>
     <% current_user.gardens.each do |garden| %>
-      <div class="card-profile">
-      <div class="card-profile-infos">
-        <img src="/ass">
-        <h2><%= garden.name %></h2>
-        <p> <%= truncate(garden.description, length: 100) %></p>
-        <a href="#" class="btn btn-primary">check it out!</a>
-        </div>
+      <% if garden.user_id == current_user.id %>
+        <div class="card-profile">
+        <div class="card-profile-infos">
+          <img src="/ass">
+          <h2><%= garden.name %></h2>
+          <p> <%= truncate(garden.description, length: 100) %></p>
+          <a href="#" class="btn btn-primary">check it out!</a>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
 
-
  <div class='container'>
   <h1>Booked Gardens</h1>
   <% current_user.bookings.each do |booking| %>
-  <div class="card-profile">
-    <div class="card-profile-infos">
-      <img src="#">
-      <h2><%= booking.garden.name %></h2>
-      <a href="#" class="btn btn-primary">check it out!</a>
+    <% unless garden.user_id == current_user.id %>
+      <div class="card-profile">
+        <div class="card-profile-infos">
+          <img src="#">
+          <h2><%= booking.garden.name %></h2>
+          <a href="#" class="btn btn-primary">check it out!</a>
+          </div>
       </div>
-</div>
+    <% end %>
   <% end %>
 </div>
 
