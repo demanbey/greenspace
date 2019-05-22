@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     @booking.garden_id = params[:garden_id]
     @booking.save
+    redirect_to garden_path(params[:garden_id])
   end
 
   def edit
