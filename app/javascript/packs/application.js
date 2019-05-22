@@ -39,3 +39,10 @@ anime.timeline({loop: true})
       return 100 + 30 * i;
     }
   });
+
+// const clicked = document.querySelector("#participate-btn")
+// if (clicked !== null) {
+//   clicked.addEventListener("click", (event) => {
+//     clicked.innerHTML = "Booked!"
+//   })
+// }
