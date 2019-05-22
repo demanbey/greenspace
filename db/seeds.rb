@@ -45,7 +45,7 @@ aaron_garden = Garden.new(
   name: "Looking for help with vegetable garden",
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore placeat magni numquam, reprehenderit doloribus quia voluptas illum recusandae rem, sunt tenetur commodi earum quisquam quam est in assumenda nesciunt nisi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero vero doloremque dicta, est ipsa quas dolorum, corporis facilis, sed beatae perferendis minus assumenda dolore voluptas quam dignissimos quis quisquam ea!",
   capacity: 10,
-  location: "4200 Laurier Avenue, Montreal",
+  location: "3600 Boyer Avenue, Montreal",
   size: "1 acre",
   category: "in progress",
   user: aaron
