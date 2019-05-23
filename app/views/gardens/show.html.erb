@@ -30,7 +30,10 @@
       <% end %>
       <br>
       <br>
-      <%= link_to "update garden", edit_garden_path, class: "btn btn-primary" %>
+
+      <% if current_user == @garden.user %>
+        <%= link_to "update garden", edit_garden_path, class: "btn btn-primary" %>
+      <% end %>
     </div>
 
     <div class="col-sm-12 col-md-1">
