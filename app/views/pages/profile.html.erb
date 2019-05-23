@@ -1,17 +1,17 @@
 <div class='container'>
   <div class='opener'>
     <div>
-      <%= cl_image_tag current_user.photo, class: "avatar-large", alt: "your profile picture" %>
+      <%= cl_image_tag @user.photo, class: "avatar-large", alt: "your profile picture" %>
     </div>
     <div>
-      <h1><%= current_user.first_name %> <%= current_user.last_name %></h>
+      <h1><%= @user.first_name %> <%= @user.last_name %></h>
     </div>
     <div>
-      <p><%= current_user.email %></p>
-      <p><%= current_user.description %></p>
+      <p><%= @user.email %></p>
+      <p><%= @user.description %></p>
     </div>
     <div>
-      <%= link_to "Edit profile", edit_user_registration_path(current_user), class: 'btn btn-success' %>
+      <%= link_to "Edit profile", edit_user_registration_path(@user), class: 'btn btn-success' %>
     </div>
   </div>
 
@@ -20,7 +20,7 @@
   <h2>My Gardens</h2>
   <div class='card-container'>
     <% @gardens.each do |garden| %>
-      <% if garden.user_id == current_user.id %>
+      <% if garden.user_id == @user.id %>
         <div class="card-profile">
           <div class="card-profile-infos">
             <%= cl_image_tag garden.photo %>
@@ -37,19 +37,22 @@
   <h2 class='booking-heading'>Booked Gardens</h2>
 
   <div class='card-container'>
-    <% current_user.gardens.each do |garden| %>
-      <% unless garden.user_id == current_user.id %>
+    <% @user.gardens.each do |garden| %>
+      <% unless garden.user_id == @user.id %>
         <div class="card-profile">
           <div class="card-profile-infos">
             <%= cl_image_tag garden.photo %>
             <h2><%= garden.name %></h2>
             <%= link_to "Review", garden_path(garden), class: "btn btn-primary" %>
-            <%= link_to "Cancel", booking_path(garden.bookings.find_by(user_id: current_user)), method: :delete, class: "btn btn-secondary" %>
+            <%= link_to "Cancel", booking_path(garden.bookings.find_by(user_id: @user)), method: :delete, class: "btn btn-secondary" %>
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
- <%= link_to "Book a Garden", gardens_path, class: 'btn btn-primary'%>
+  <br>
+  <p class="text-center">
+    <%= link_to "Book a Garden", gardens_path, class: 'btn btn-primary'%>
+  </p>
 
 </div>
