@@ -14,9 +14,9 @@ class Garden < ApplicationRecord
 
   # garden search
   include PgSearch
-  pg_search_scope :search_by_location,
-    against: [ :location ],
+  pg_search_scope :search_by_keyword,
+    against: [ :name, :description, :category, :location ],
     using: {
-      tsearch: { prefix: true }
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 end
