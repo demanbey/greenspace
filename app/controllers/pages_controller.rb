@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
      # search based on location and size
     @gardens = Garden.all
-
+    @homepage = true
   end
 
   def profile
