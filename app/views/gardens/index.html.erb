@@ -1,5 +1,20 @@
 <div class="index-container">
 
+  <div class="search-bar col-md-3 keyword-search">
+    <%= form_tag gardens_path, method: :get do %>
+    <%= text_field_tag :city,
+      params[:city],
+      class: "form-control",
+      placeholder: "Change city"
+    %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Narrow your search by keyword"
+    %>
+      <%= submit_tag %>
+    <% end %>
+  </div>
   <div class="row">
     <div class="col-sm-12 col-md-7">
       <% @gardens.each do |garden| %>

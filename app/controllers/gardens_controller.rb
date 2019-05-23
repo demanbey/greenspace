@@ -4,8 +4,8 @@ class GardensController < ApplicationController
 
   def index
 
-    if params[:query].present?
-      @gardens = Garden.search_by_location(params[:query])
+    if params[:query].present? || params[:city].present?
+      @gardens = Garden.search_by_keyword("#{params[:query]} #{params[:city]}")
     else
       @gardens = Garden.all
     end

@@ -8,20 +8,15 @@
      <!--  search criteria -->
     <div class="search-bar">
       <div class="col-md-6 no-padding">
-        <div class="location"><h5>What city are you in?<h5></div>
-
         <%= form_tag gardens_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
+        <%= text_field_tag :city,
+          params[:city],
           class: "form-control",
-          placeholder: "Find a garden near you"
+          placeholder: "What city are you in?"
         %>
         <% end %>
       </div>
     </div>
-
-    <br>
-    <%#= link_to "Search for spaces", gardens_path, class: 'btn btn-primary' %>
   </div>
 </div>
 
@@ -38,6 +33,17 @@
         </div>
       <% end %>
     <% end %>
+  </div>
+</div>
+
+<div class="container"></div>
+  <div class="garden-list">
+    <div class="garden-header">
+      <div class="col-md-6>
+        <h3 class="browse-header"><strong>Why participate?</strong></h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium sint unde inventore laboriosam esse, animi suscipit, ut ex aperiam, reprehenderit explicabo veniam cumque eos dolor quas sapiente dolorum expedita. Rem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque consequuntur labore aliquid obcaecati illo est. Minima quo iste, facilis nesciunt amet perferendis excepturi molestiae, fugiat tempore molestias suscipit beatae modi?</p>
+      </div>
+    </div>
   </div>
 </div>
 
