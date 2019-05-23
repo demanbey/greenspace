@@ -16,17 +16,18 @@
   margin: 0px 80px;
 }
 
-.keyword-box {
-  margin: 20px 0px;
-  display: flex;
-  flex-direction: row;
-}
-
 .keyword-search {
   display: flex;
-  padding: 0px 0px 20px 0px;
+  margin-right: 10px;
+  padding-left: 0px;
 }
 
 .keyword {
-  padding: 0px;
+  margin: 10px 0px;
+  padding-left: 0px;
 }
+
+.narrow-keyword {
+  padding-right: 150px;
+}
+

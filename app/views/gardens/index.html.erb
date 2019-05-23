@@ -4,15 +4,15 @@
     <%= form_tag gardens_path, method: :get, class: "keyword-search" do %>
     <%= text_field_tag :city,
       params[:city],
-      class: "form-control",
+      class: "keyword-search",
       placeholder: "Change city"
     %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
-      placeholder: "Narrow your search by keyword"
+      class: "keyword-search narrow-keyword",
+      placeholder: "Search by keyword"
     %>
-    <%= submit_tag %>
+    <%= submit_tag("Search", :id=>"button", :class=>"btn btn-warning", :name=>"search") %>
   <% end %>
 </div>
   <div class="row">
