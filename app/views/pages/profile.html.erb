@@ -39,12 +39,18 @@
   <div class='card-container'>
     <% current_user.gardens.each do |garden| %>
       <% unless garden.user_id == current_user.id %>
+        <% booking = garden.bookings.find_by(user_id: current_user) %>
         <div class="card-profile">
           <div class="card-profile-infos">
             <%= cl_image_tag garden.photo %>
             <h2><%= garden.name %></h2>
             <%= link_to "Review", garden_path(garden), class: "btn btn-primary" %>
-            <%= link_to "Cancel", booking_path(garden.bookings.find_by(user_id: current_user)), method: :delete, class: "btn btn-secondary" %>
+            <%= link_to "Cancel", booking_path(booking), method: :delete, class: "btn btn-secondary" %>
+            <% if booking.approved == false %>
+              <p id="Booking-Status"> Pending </p>
+            <% else %>
+              <p id="Booking-Status"> Confirmed </p>
+            <% end %>
           </div>
         </div>
       <% end %>

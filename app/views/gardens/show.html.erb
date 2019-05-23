@@ -41,12 +41,14 @@
 
     <div class="col-sm-12 col-md-4">
 
-      <h5> Current Participants: <%= Booking.where(garden_id: @garden.id).count %>
+      <h5> Current Participants: <%= Booking.where(garden_id: @garden.id, approved: true).count %>
         of <%= @garden.capacity %>
       </h5>
           <% if current_user == nil %>
             <%= link_to "Sign In to Book!", new_user_session_path, method: :post, class: "btn btn-primary", id: "participate-btn"%>
-          <% elsif Booking.exists?(user_id: current_user.id, garden_id: @garden.id) %>
+          <% elsif Booking.exists?(user_id: current_user.id, garden_id: @garden.id, approved: false) %>
+            <button type="button" class="btn btn-warning">Pending</button>
+          <% elsif Booking.exists?(user_id: current_user.id, garden_id: @garden.id, approved: true) %>
             <button type="button" class="btn btn-success">Booked!</button>
           <% elsif current_user.id == @garden.user_id%>
             <p> Project Owner </p>
@@ -54,7 +56,7 @@
               <% if b.approved == false %>
                 <%= simple_form_for(b) do |form| %>
                 <%= form.input :approved   %>
-                <%= form.button :submit, class: "btn btn-secondary", id: "booking-button"   %>
+                <%= form.button :submit, class: "btn btn-primary", id: "booking-button"   %>
                 <% end %>
             <% end %>
           <% end %>
