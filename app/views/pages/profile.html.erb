@@ -8,6 +8,7 @@
     </div>
     <div>
       <p><%= current_user.email %></p>
+      <p><%= current_user.description %></p>
     </div>
     <div>
       <%= link_to "Edit profile", edit_user_registration_path(current_user), class: 'btn btn-success' %>
@@ -49,4 +50,5 @@
     <% end %>
   </div>
  <%= link_to "Book a Garden", gardens_path, class: 'btn btn-primary'%>
+
 </div>
