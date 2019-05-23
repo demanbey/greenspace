@@ -2,10 +2,26 @@
   <div class="container">
     <h1><strong>GreenSpace</strong></h1>
     <br>
-    <h1 class="ml12">Share land with your community. <br>Find a garden to contribute.</h1>
+    <h1 class="ml12">Share land with your community <br>Find a garden to contribute</h1>
     <br>
     <br>
-    <%= link_to "Search for spaces", gardens_path, class: 'btn btn-primary' %>
+     <!--  search criteria -->
+    <div class="search-bar">
+      <div class="col-md-6 no-padding">
+        <div class="location"><h5>What city are you in?<h5></div>
+
+        <%= form_tag gardens_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a garden near you"
+        %>
+        <% end %>
+      </div>
+    </div>
+
+    <br>
+    <%#= link_to "Search for spaces", gardens_path, class: 'btn btn-primary' %>
   </div>
 </div>
 

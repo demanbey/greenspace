@@ -11,4 +11,12 @@ class Garden < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
 
   mount_uploader :photo, PhotoUploader
+
+  # garden search
+  include PgSearch
+  pg_search_scope :search_by_location,
+    against: [ :location ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

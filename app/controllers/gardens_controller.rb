@@ -3,7 +3,15 @@ class GardensController < ApplicationController
   before_action :set_garden, only: %i[show edit update destroy]
 
   def index
-    @gardens = Garden.where.not(latitude: nil, longitude: nil)
+
+    if params[:query].present?
+      @gardens = Garden.search_by_location(params[:query])
+    else
+      @gardens = Garden.all
+    end
+
+    # displaying gardens based on maps displayed
+    @gardens = @gardens.where.not(latitude: nil, longitude: nil)
 
     @markers = @gardens.map do |garden|
       {

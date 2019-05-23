@@ -1,4 +1,8 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<% if @navbarwhite %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" id="color-white">
+<% else %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<% end %>
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= cl_image_tag "greenspace/IMG_3073_lzvmnv.jpg", width: 50 %>
     <% end %>
@@ -12,7 +16,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Share Your Space", new_garden_path, class: "nav-link" %>
+          <%= link_to "Share Your Space", new_garden_path, id: "nav-share",class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.photo, width: 300, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
