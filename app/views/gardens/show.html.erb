@@ -53,11 +53,16 @@
           <% elsif current_user.id == @garden.user_id%>
             <p> Project Owner </p>
             <% @garden.bookings.each do |b| %>
-              <% if b.approved == false %>
+              <% if b.approved == true %>
+                <!-- Update on Friday -->
+                <p><strong>Confirmed Participants</strong></p>
+                <p> 1) Aaron </p>
+              <% elsif b.approved == false %>
                 <%= simple_form_for(b) do |form| %>
+                <!-- Edit w/ Ajax on Friday -->
                 <%= form.input :approved   %>
-                <%= form.button :submit, class: "btn btn-primary", id: "booking-button"   %>
-                <% end %>
+                <%= form.button :submit, class: "btn btn-primary", id: "booking-button" %>
+              <% end %>
             <% end %>
           <% end %>
 
