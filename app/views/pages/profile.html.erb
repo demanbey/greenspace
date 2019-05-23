@@ -19,7 +19,7 @@
 
   <h2>My Gardens</h2>
   <div class='card-container'>
-    <% current_user.gardens.each do |garden| %>
+    <% @gardens.each do |garden| %>
       <% if garden.user_id == current_user.id %>
         <div class="card-profile">
           <div class="card-profile-infos">
