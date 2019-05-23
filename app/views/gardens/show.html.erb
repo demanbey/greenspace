@@ -68,8 +68,13 @@
           <% end %>
       <div class="owner">
         <h4>Owned by:</h4>
-        <%= cl_image_tag @garden.user.photo, width: 300, crop: :fill, class: "avatar large" %>
-        <%= @garden.user.first_name %> <%= @garden.user.last_name %>
+        <br>
+        <%= link_to profile_path(@garden.user_id) do %>
+          <%= cl_image_tag @garden.user.photo, width: 300, crop: :fill, class: "avatar large" %>
+          <%= @garden.user.first_name %> <%= @garden.user.last_name %>
+        <% end %>
+
+        <br>
         <br>
         <%= @garden.user.description unless @garden.user.description.nil? %>
       </div>

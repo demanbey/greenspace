@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def profile
+    @user = User.find(params[:id])
     @gardens = Garden.all
   end
 end
