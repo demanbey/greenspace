@@ -18,7 +18,18 @@ $('.ml12').each(function(){
   $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
 });
 
-anime.timeline({loop: true})
+const clicked = document.querySelector("#booking-button")
+if (clicked !== null) {
+  clicked.addEventListener("click", (event) => {
+    clicked.innerHTML = "working on it!"
+    // const bookingId = clicked.dataset.bookingid
+    // console.log(bookingId);
+// add ajax request for booking update
+  })
+}
+
+if (anime){
+ anime.timeline({loop: true})
   .add({
     targets: '.ml12 .letter',
     translateX: [40,0],
@@ -39,10 +50,6 @@ anime.timeline({loop: true})
       return 100 + 30 * i;
     }
   });
+}
 
-// const clicked = document.querySelector("#participate-btn")
-// if (clicked !== null) {
-//   clicked.addEventListener("click", (event) => {
-//     clicked.innerHTML = "Booked!"
-//   })
-// }
+

@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to user_path(@booking) # ! double check
+      redirect_to profile_path(@booking) # ! double check
     else
       render :edit
     end
@@ -42,4 +42,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def booking_params
+    params.require(:booking).permit(:garden_id, :user_id, :approved, :completed)
+  end
 end
