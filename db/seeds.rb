@@ -57,7 +57,3 @@ aaron_garden = Garden.new(
 aaron_garden.remote_photo_url = "https://i.imgur.com/39bSalZ.jpg"
 aaron_garden.save
 
-erik_booking1 = Booking.create!(user_id: erik.id, garden_id: erik_yard.id)
-erik_booking2 = Booking.create!(user_id: erik.id, garden_id: erik_roof.id)
-
-arron_booking1 = Booking.create!(user_id: aaron.id, garden_id: aaron_garden.id)
