@@ -8,6 +8,6 @@ class PagesController < ApplicationController
   end
 
   def profile
+    @gardens = Garden.all
   end
-
 end

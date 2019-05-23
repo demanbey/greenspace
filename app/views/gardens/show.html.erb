@@ -47,6 +47,15 @@
             <button type="button" class="btn btn-success">Booked!</button>
           <% elsif current_user.id == @garden.user_id%>
             <p> Project Owner </p>
+            <% @garden.bookings.each do |b| %>
+              <% if b.approved == false %>
+                <%= simple_form_for(b) do |form| %>
+                <%= form.input :approved   %>
+                <%= form.button :submit, class: "btn btn-secondary", id: "booking-button"   %>
+                <% end %>
+            <% end %>
+          <% end %>
+
           <% elsif Booking.where(garden_id: @garden.id).count >= @garden.capacity%>
             <button type="button" class="btn btn-secondary">Project Fully Booked</button>
           <% else %>
