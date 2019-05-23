@@ -1,19 +1,28 @@
-<div>
-<h1>Update your green space.</h1>
-</div>
-<div>
- <%= simple_form_for [@garden] do |f| %>
-
-    <%= f.input :name, label: 'Short description of the space - what are its main features? (100 characters or less)' %>
-    <%= f.input :location %>
-    <%= f.input :size %>
-    <%= f.input :category, collection: ["Plot", "In Progress"] %>
-    <%= f.input :description, label: 'Give a detailed description.' %>
-    <%= f.input :capacity, label: 'How many people can contribute?' %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
+<div class="container">
   <div>
-  <%= f.submit "update", class: "btn btn-primary" %>
-  <% end %>
+    <h1>Update your green space.</h1>
   </div>
+
+  <div>
+   <%= simple_form_for [@garden] do |f| %>
+
+      <%= f.input :name, label: 'Short description of the space - what are its main features? (100 characters or less)' %>
+      <%= f.input :location %>
+      <%= f.input :size %>
+      <%= f.input :category, collection: ["Plot", "In Progress"] %>
+      <%= f.input :description, label: 'Give a detailed description.' %>
+      <%= f.input :capacity, label: 'How many people can contribute?' %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+    <div>
+    <%= f.submit "Update", class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to "Cancel", garden_path, class: "btn btn-secondary" %>
+    <br>
+    <br>
+    <%= link_to "remove garden", garden_path, method: :delete, class: "btn btn-danger" %>
+    </div>
+  </div>
+
 </div>
+
