@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to profile_path(@booking) # ! double check
+      redirect_to garden_path(@booking.garden) # ! double check
     else
       render :edit
     end
