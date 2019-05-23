@@ -9,11 +9,27 @@
 Garden.destroy_all
 User.destroy_all
 
-erik = User.new(first_name: "Erik", last_name: "Pong", email: "emailerik@email.com", password: "123456")
-aaron = User.create!(first_name: "Aaron", last_name: "Chong", email: "emailaaron@email.com", password: "123456")
+erik = User.new(
+  first_name: "Erik",
+  last_name: "Pong",
+  email: "emailerik@email.com",
+  password: "123456",
+  description: "Really great garderner and human being"
+)
+
+aaron = User.create!(
+  first_name: "Aaron",
+  last_name: "Chong",
+  email: "emailaaron@email.com",
+  password: "123456",
+  description: "Pretty good gardener and excellent human"
+)
 
 erik.remote_photo_url = "https://lh3.googleusercontent.com/-FqOP9ADmAUU/W04mHOMxzyI/AAAAAAAAABw/VlrHRB759PIx2SRuysFlMn0N8u7jpBqVQCEwYBhgL/w280-h280-p/ERik.png"
 erik.save
+
+aaron.remote_photo_url = "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/34321416_1759664257460898_9212334121227911168_n.jpg?_nc_cat=105&_nc_ht=scontent-sjc3-1.xx&oh=3f0e9df2ee813ba3d7d7e4f3f0f077ab&oe=5D5223DF"
+aaron.save
 
 
 erik_yard = Garden.new(
