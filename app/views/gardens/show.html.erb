@@ -79,7 +79,9 @@
               <% elsif b.approved == false %>
                 <%= simple_form_for(b) do |form| %>
                 <!-- Edit w/ Ajax on Friday -->
-                <%= form.input :approved %>
+                <p><%= cl_image_tag b.user.photo, width: 300, crop: :fill, class: "avatar large" %> <%= b.user.first_name %> <%= b.user.last_name %> has requested to work on your garden<p>
+                <%= form.input :approved, input_html: {checked: true
+                 }, class:  "hidden" %>
                 <%= form.button :submit, class: "btn btn-primary", id: "booking-button" %>
               <% end %>
             <% end %>
@@ -91,7 +93,7 @@
 
           <!-- If not the owner, and not booked yet, show participate button -->
           <% else %>
-            <%= link_to "Participate!", garden_bookings_path(@garden), method: :post, class: "btn btn-primary", id: "participate-btn"%>
+            <%= link_to "Participate!", garden_bookings_path(@garden), method: :post, class: "btn btn-primary", id: "participate-btn" %>
           <% end %>
     </div>
   </div>

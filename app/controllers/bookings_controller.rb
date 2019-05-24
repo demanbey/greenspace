@@ -13,11 +13,22 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new
+      @booking = Booking.new
     @booking.user_id = current_user.id
     @booking.garden_id = params[:garden_id]
     @booking.save
     redirect_to garden_path(params[:garden_id])
+    #  if @booking.save
+    #   respond_to do |format|
+    #     format.html { redirect_to garden_path(@garden) }
+    #     format.js  # <-- will render `app/views/reviews/create.js.erb`
+    #   end
+    #      else
+    #   respond_to do |format|
+    #     format.html { render 'gardens/show' }
+    #     format.js  # <-- idem
+    #   end
+    # end
   end
 
   def edit
@@ -25,6 +36,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
+      binding.pry
       redirect_to garden_path(@booking.garden) # ! double check
     else
       render :edit
