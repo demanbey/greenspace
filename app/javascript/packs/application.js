@@ -47,7 +47,7 @@ if (anime){
     easing: "easeInExpo",
     duration: 3000,
     delay: function(el, i) {
-      return 200 + 30 * i;
+      return 200 + 10 * i;
     }
   });
 }
