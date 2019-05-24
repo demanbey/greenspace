@@ -11,7 +11,7 @@
       <p><%= @user.description %></p>
     </div>
     <div>
-      <%= link_to "Edit profile", edit_user_registration_path(@user), class: 'btn btn-success' %>
+      <%= link_to "Edit profile", edit_user_registration_path(@user), class: 'btn btn-secondary' %>
     </div>
   </div>
 
@@ -20,17 +20,20 @@
   <!-- Owned Garden Cards -->
   <!-- Can we make this inline? -->
   <h2>My Gardens <p class="text-right">
-    <%= link_to "Share a Garden", new_garden_path, class: 'btn btn-primary'%>
+    <%= link_to "Share a Garden", new_garden_path, class: 'btn btn-success'%>
   </p></h2>
+
   <div class='card-container'>
     <% @gardens.each do |garden| %>
       <% if garden.user_id == @user.id %>
         <div class="card-profile">
-          <div class="card-profile-infos">
-            <%= cl_image_tag garden.photo %>
-            <h2> <%= garden.name %> </h2>
+          <div class="card-profile-infos flex-column">
+            <%= cl_image_tag garden.photo, class: "img-garden-profile" %>
+            <h5> <%= garden.name %> </h5>
             <p> <%= truncate(garden.description, length: 100) %></p>
-            <%= link_to "Learn More", garden_path(garden), class: "btn btn-primary" %>
+            <div class="text-center mt-4">
+              <%= link_to "View Garden", garden_path(garden), class: "btn btn-secondary" %>
+            </div>
           </div>
         </div>
       <% end %>
@@ -41,24 +44,30 @@
   <!-- Booking Cards -->
   <!-- Can we make this inline? -->
   <h2 class='booking-heading'>Booked Gardens <p class="text-right ">
-    <%= link_to "Book a Garden", gardens_path, class: 'btn btn-primary'%>
+    <%= link_to "Book a Garden", gardens_path, class: 'btn btn-success'%>
   </p></h2>
-  <div class='card-container'>
 
+  <div class='card-container'>
     <% @user.gardens.each do |garden| %>
       <% unless garden.user_id == @user.id %>
         <% booking = garden.bookings.find_by(user_id: @user) %>
         <div class="card-profile">
-          <div class="card-profile-infos">
-            <%= cl_image_tag garden.photo %>
-            <h2><%= garden.name %></h2>
-            <%= link_to "Review", garden_path(garden), class: "btn btn-primary" %>
-            <%= link_to "Cancel", booking_path(booking), method: :delete, class: "btn btn-secondary" %>
-            <% if booking.approved == false %>
-              <p id="Booking-Status"> Pending </p>
-            <% else %>
-              <p id="Booking-Status"> Confirmed </p>
-            <% end %>
+          <div class="card-profile-infos flex-column">
+            <%= cl_image_tag garden.photo, class: "img-garden-profile" %>
+            <div class="text-center mt-4">
+              <h5> <%= garden.name %> </h5>
+              <div class="mt-4">
+                <% if booking.approved == false %>
+                  <button type="button" class="btn btn-warning">Pending</button>
+                <% else %>
+                  <button type="button" class="btn btn-success">Booked!</button>
+                <% end %>
+                <br>
+                <br>
+                <%= link_to "View", garden_path(garden), class: "btn btn-secondary" %>
+                <%= link_to "Cancel", booking_path(booking), method: :delete, class: "btn btn-danger" %>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>

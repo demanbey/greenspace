@@ -38,7 +38,7 @@
 </div>
 
 
-<div class="garden-container" id="about">
+<div class="garden-container pt-5" id="about">
   <div class="row">
     <div class="col-md-8">
       <h3 class="main-header"><strong>Why participate?</strong></h3>
@@ -59,4 +59,12 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+<script>
+  document.querySelector("#about-link").addEventListener("click", () => {
+    document.querySelector("#about").scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+</script>
 
