@@ -36,7 +36,7 @@ if (anime){
     translateZ: 0,
     opacity: [0,1],
     easing: "easeOutExpo",
-    duration: 2200,
+    duration: 2000,
     delay: function(el, i) {
       return 500 + 30 * i;
     }

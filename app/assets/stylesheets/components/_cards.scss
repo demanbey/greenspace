@@ -36,24 +36,30 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  flex-grow: 1;
+  border-radius: 5px;
 }
 
 .card {
   color: black;
-  margin: 10px;
+  margin: 10px 0px;
   border-style: none;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  transition: width 5s;
+  transition: width 10s;
+  border-radius: 5px;
   &:hover{
     text-decoration: none;
-    transform: scale(1.01);
-    opacity: .95;
+    transform: scale(1.05);
+    // opacity: .7;
   }
+}
+
+.index-card {
+  flex-grow: 1;
 }
 
 .card-img-top {
   height: 250px;
+  border-radius-top: 5px;
 }
 
 .card-body {
