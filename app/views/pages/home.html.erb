@@ -1,5 +1,5 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1553481839-a18af44d1355?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);">
-  <div class="container">
+  <div class="container col-md-offset-2 ">
     <h1><strong>GreenSpace</strong></h1>
     <br>
     <h1 class="ml12">Share land with your community <br>Find a garden to contribute</h1>
@@ -21,13 +21,13 @@
   </div>
 </div>
 
-<div class="garden-list">
+<div class="garden-container">
   <div class="garden-header">
-    <h3 class="browse-header"><strong>Browse featured gardens</strong></h3>
-    <p>Montreal, Quebec</p>
+    <h3 class="main-header"><strong>Browse featured gardens</strong></h3>
+    <h5>Montreal, Quebec</h5>
   </div>
   <div class="cards">
-    <% @gardens.each do |garden| %>
+    <% @gardens.near('Montreal', 10).each do |garden| %>
       <%= link_to(garden_path(garden.id), class: "card") do %>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('<%= cl_image_path garden.photo, width: 400, height: 300, crop: :fill unless garden.photo.blank? %>');">
           <h4 class="text-center"><%= garden.name %></h4>
@@ -37,20 +37,26 @@
   </div>
 </div>
 
-<div class="container"></div>
-  <div class="garden-list" id="about">
-    <div class="row">
-      <div class="col-md-8">
-        <h2 class="header"><strong>Why participate?</strong></h2>
-        <h4 class="sub-header"><strong>Connect with people from around the world to create a larger community of gardeners. Grow locally, access green space, share your space. </strong></h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium sint unde inventore laboriosam esse, animi suscipit, ut ex aperiam, reprehenderit explicabo veniam cumque eos dolor quas sapiente dolorum expedita. Rem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque consequuntur labore aliquid obcaecati illo est. Minima quo iste, facilis nesciunt amet perferendis excepturi molestiae, fugiat tempore molestias suscipit beatae modi?</p>
-      </div>
-      <div class="col-md-4 about-image">
-        <img src="https://images.unsplash.com/photo-1518931169559-527a99b4074d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80", alt="">
-      </div>
+
+<div class="garden-container" id="about">
+  <div class="row">
+    <div class="col-md-8">
+      <h3 class="main-header"><strong>Why participate?</strong></h3>
+      <br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium sint unde inventore laboriosam esse, animi suscipit, ut ex aperiam, reprehenderit explicabo veniam cumque eos dolor quas sapiente dolorum expedita. Rem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque consequuntur labore aliquid obcaecati illo est. Minima quo iste, facilis nesciunt amet perferendis excepturi molestiae, fugiat tempore molestias suscipit beatae modi?</p>
+      <br>
+      <h5 class="sub-header"><strong>We're creating a large community of gardeners. Access green space, grow locally, share your space. </strong></h5>
+      <br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium sint unde inventore laboriosam esse, animi suscipit, ut ex aperiam, reprehenderit explicabo veniam cumque eos dolor quas sapiente dolorum expedita. Rem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque consequuntur labore aliquid obcaecati illo est. Minima quo iste, facilis nesciunt amet perferendis excepturi molestiae, fugiat tempore molestias suscipit beatae modi?</p>
+      <br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium sint unde inventore laboriosam esse, animi suscipit, ut ex aperiam, reprehenderit explicabo veniam cumque eos dolor quas sapiente dolorum expedita. Rem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque consequuntur labore aliquid obcaecati illo est. Minima quo iste, facilis nesciunt amet perferendis excepturi molestiae, fugiat tempore molestias suscipit beatae modi?</p>
+    </div>
+    <div class="col-md-4 about-image">
+      <img src="https://images.unsplash.com/photo-1518931169559-527a99b4074d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80", alt="">
     </div>
   </div>
 </div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 

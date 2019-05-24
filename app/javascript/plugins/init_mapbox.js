@@ -15,7 +15,7 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/hdemanbey/cjw10g7om2otp1cn8bbjfnc7a'
+      style: 'mapbox://styles/hdemanbey/cjw1asz2r05u21cqpn7tf7nl7'
     });
 
     // Fetching marker data from HTML attributes
