@@ -17,7 +17,11 @@
 
   <hr>
 
-  <h2>My Gardens</h2>
+  <!-- Owned Garden Cards -->
+  <!-- Can we make this inline? -->
+  <h2>My Gardens <p class="text-right">
+    <%= link_to "Share a Garden", new_garden_path, class: 'btn btn-primary'%>
+  </p></h2>
   <div class='card-container'>
     <% @gardens.each do |garden| %>
       <% if garden.user_id == @user.id %>
@@ -26,7 +30,7 @@
             <%= cl_image_tag garden.photo %>
             <h2> <%= garden.name %> </h2>
             <p> <%= truncate(garden.description, length: 100) %></p>
-            <%= link_to "check it out!", garden_path(garden), class: "btn btn-primary" %>
+            <%= link_to "Learn More", garden_path(garden), class: "btn btn-primary" %>
           </div>
         </div>
       <% end %>
@@ -34,8 +38,11 @@
   </div>
   <hr>
 
-  <h2 class='booking-heading'>Booked Gardens</h2>
-
+  <!-- Booking Cards -->
+  <!-- Can we make this inline? -->
+  <h2 class='booking-heading'>Booked Gardens <p class="text-right ">
+    <%= link_to "Book a Garden", gardens_path, class: 'btn btn-primary'%>
+  </p></h2>
   <div class='card-container'>
 
     <% @user.gardens.each do |garden| %>
@@ -58,8 +65,5 @@
     <% end %>
   </div>
   <br>
-  <p class="text-center">
-    <%= link_to "Book a Garden", gardens_path, class: 'btn btn-primary'%>
-  </p>
 
 </div>
