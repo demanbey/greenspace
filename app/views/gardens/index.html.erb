@@ -16,9 +16,9 @@
   <% end %>
 </div>
   <div class="row">
-    <div class="col-sm-12 col-md-8 garden-cards">
+    <div class="col-sm-12 col-md-7 garden-cards">
       <% @gardens.each do |garden| %>
-        <%= link_to(garden_path(garden.id), class: "") do %>
+        <%= link_to(garden_path(garden.id), class: "index-card") do %>
           <div class="card" style="width: 18rem;">
             <%= cl_image_tag garden.photo, class: "card-img-top", crop: :fill unless garden.photo.blank? %>
             <div class="card-body">
@@ -31,7 +31,7 @@
         <br>
       <% end %>
     </div>
-    <div class="col-sm-12 col-md-4">
+    <div class="col-sm-12 col-md-5">
       <div
         id="map"
         class="map-index"
