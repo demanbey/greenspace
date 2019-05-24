@@ -24,6 +24,16 @@ class GardensController < ApplicationController
   end
 
   def show
+    @garden_map = Garden.where(latitude: @garden.latitude, longitude: @garden.longitude)
+
+    @markers = @garden_map.map do |garden|
+      {
+        lat: garden.latitude,
+        lng: garden.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { garden: garden })
+        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      }
+    end
   end
 
   def new

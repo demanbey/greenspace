@@ -5,7 +5,7 @@
     <%= text_field_tag :city,
       params[:city],
       class: "keyword-box",
-      placeholder: "Update city"
+      placeholder: "City"
     %>
     <%= text_field_tag :query,
       params[:query],
@@ -16,13 +16,13 @@
   <% end %>
 </div>
   <div class="row">
-    <div class="col-sm-12 col-md-7">
+    <div class="col-sm-12 col-md-8 garden-cards">
       <% @gardens.each do |garden| %>
         <%= link_to(garden_path(garden.id), class: "") do %>
           <div class="card" style="width: 18rem;">
-            <%= cl_image_tag garden.photo, height: 600, width: 400, crop: :fill unless garden.photo.blank? %>
+            <%= cl_image_tag garden.photo, class: "card-img-top", crop: :fill unless garden.photo.blank? %>
             <div class="card-body">
-              <h2><strong><%= garden.name %></strong></h2>
+              <h5><strong><%= garden.name %></strong></h5>
               <p>Type of land available: <%= garden.category %></p>
               <p>Size: <%= garden.size %></p>
             </div>
@@ -31,9 +31,10 @@
         <br>
       <% end %>
     </div>
-    <div class="col-sm-12 col-md-5">
+    <div class="col-sm-12 col-md-4">
       <div
         id="map"
+        class="map-index"
         style="width: 100%;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
