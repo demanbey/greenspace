@@ -122,10 +122,12 @@
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
 
 .card-container{
   display: flex;
   justify-content: space-evenly;
+
 }
 
 .card-profile {
@@ -143,6 +145,7 @@
   height: 100%;
   width: 120px;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .card-profile h2 {
@@ -159,12 +162,21 @@
   margin-top: 8px;
 }
 
+.img-garden-profile {
+  display: block;
+  width: 240px;
+  height: auto;
+  margin: auto;
+  margin-bottom: 16px;
+  object-fit: cover;
+}
+
 .card-profile .card-profile-infos {
   padding: 16px;
 }
 
 #Booking-Status {
-  font-size: 20px;
-}
-
+  font-size: 24px;
+  font-weight: bold;
+  color: green;
 }
