@@ -86,7 +86,7 @@ print "."
 donald = User.create!(
   first_name: "Donald",
   last_name: "Kiney",
-  email: "emaildonaldemail.com",
+  email: "emaildonald@email.com",
   password: "123456",
   description: "Stressful job...need to get away for a little bit"
 )
