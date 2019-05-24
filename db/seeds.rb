@@ -302,30 +302,29 @@ print "."
 puts "...done!"
 print "Creating bookings..."
 
-book1 = Booking.new(
-  garden_id: 112,
-  user_id: 5,
+book1 = Booking.create!(
+  garden_id: "1",
+  user_id: "5",
   approved: true,
   completed: false
 )
 
 print "."
 
-book2 = Booking.new(
-  garden_id: 112,
-  user_id: 3,
+book2 = Booking.create!(
+  garden_id: "1",
+  user_id: "3",
   approved: true,
   completed: false
 )
 
 print "."
 
-book3 = Booking.new(
-  garden_id: 112,
-  user_id: 6,
+book3 = Booking.create!(
+  garden_id: "1",
+  user_id: "6",
   approved: true,
   completed: false
 )
 
-print "...done!"
-
+print "done!"
