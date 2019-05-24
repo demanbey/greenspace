@@ -40,53 +40,60 @@
     </div>
 
     <div class="col-sm-12 col-md-4">
+          <div>
+            <!-- Shows owner information -->
+            <h4>Owner:</h4>
+            <%= link_to profile_path(@garden.user_id) do %>
+              <%= cl_image_tag @garden.user.photo, width: 300, crop: :fill, class: "avatar large" %>
+              <%= @garden.user.first_name %> <%= @garden.user.last_name %>
+            <% end %>
+            <br>
+            <br>
+          </div>
 
-      <h5> Current Participants: <%= Booking.where(garden_id: @garden.id, approved: true).count %>
-        of <%= @garden.capacity %>
-      </h5>
+          <h4>Participants: <%= Booking.where(garden_id: @garden.id, approved: true).count %> / <%= @garden.capacity %></h4>
+          <!-- Commented out for now, can reinitialize
+          <%= @garden.user.description unless @garden.user.description.nil? %> -->
+
+          <!-- If logged out, have a sign in button -->
           <% if current_user == nil %>
             <%= link_to "Sign In to Book!", new_user_session_path, method: :post, class: "btn btn-primary", id: "participate-btn"%>
+
+          <!-- If booking created but not accepted, show pending  -->
           <% elsif Booking.exists?(user_id: current_user.id, garden_id: @garden.id, approved: false) %>
             <button type="button" class="btn btn-warning">Pending</button>
+
+          <!-- If booking created and accepted, show booked! -->
           <% elsif Booking.exists?(user_id: current_user.id, garden_id: @garden.id, approved: true) %>
             <button type="button" class="btn btn-success">Booked!</button>
+
+          <!-- If owner, can approve request and review bookings -->
           <% elsif current_user.id == @garden.user_id%>
-            <p> Project Owner </p>
             <% @garden.bookings.each do |b| %>
               <% if b.approved == true %>
-                <!-- Update on Friday -->
-                <p><strong>Confirmed Participants</strong></p>
-                <p> 1) Aaron </p>
+                  <%= link_to profile_path(b.user_id) do %>
+                    <%= cl_image_tag b.user.photo, width: 300, crop: :fill, class: "avatar large" %>
+                    <%= b.user.first_name %> <%= b.user.last_name %>
+                  <% end %>
+                </div>
               <% elsif b.approved == false %>
                 <%= simple_form_for(b) do |form| %>
                 <!-- Edit w/ Ajax on Friday -->
-                <%= form.input :approved   %>
+                <%= form.input :approved %>
                 <%= form.button :submit, class: "btn btn-primary", id: "booking-button" %>
               <% end %>
             <% end %>
           <% end %>
 
+          <!-- Cannot book if capcity is full -->
           <% elsif Booking.where(garden_id: @garden.id).count >= @garden.capacity%>
-            <button type="button" class="btn btn-secondary">Project Fully Booked</button>
+            <button type="button" class="btn btn-secondary">Fully Booked</button>
+
+          <!-- If not the owner, and not booked yet, show participate button -->
           <% else %>
             <%= link_to "Participate!", garden_bookings_path(@garden), method: :post, class: "btn btn-primary", id: "participate-btn"%>
           <% end %>
-      <div class="owner">
-        <h4>Owned by:</h4>
-        <br>
-        <%= link_to profile_path(@garden.user_id) do %>
-          <%= cl_image_tag @garden.user.photo, width: 300, crop: :fill, class: "avatar large" %>
-          <%= @garden.user.first_name %> <%= @garden.user.last_name %>
-        <% end %>
-
-        <br>
-        <br>
-        <%= @garden.user.description unless @garden.user.description.nil? %>
-      </div>
-
     </div>
-
-
   </div>
 </div>
 
