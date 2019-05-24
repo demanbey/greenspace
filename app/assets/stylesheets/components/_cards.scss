@@ -141,13 +141,6 @@
   width: 300px;
 }
 
-.card-profile img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
 .card-profile h2 {
   font-size: 16px;
   font-weight: bold;
@@ -163,7 +156,7 @@
 }
 
 .img-garden-profile {
-  display: block;
+  display: block !important;
   width: 240px;
   height: auto;
   margin: auto;
