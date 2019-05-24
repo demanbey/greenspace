@@ -10,7 +10,6 @@
   <div class="row">
     <div class="col-sm-12 col-md-7">
       <h1><%= @garden.name %> </h1>
-      <p><%= @garden.location %></p>
       <div class="garden-category">
           <% if @garden.category == "in progress" %>
           <h5><strong><%= "Garden is in progress!" %></strong></h5>
@@ -22,34 +21,44 @@
         </div>
       </div>
       <div>
-        <p><strong>Size of land: </strong><%= @garden.size %></p>
+        <p><strong>Size of land: </strong><br><%= @garden.size %></p>
+      </div>
+      <br>
+      <p> Garden location: <%= @garden.location %></p>
+      <div class="position-relative">
+       <div
+        id="map"
+        style="height: 400px"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+
       </div>
 
+      <br>
       <% if current_user == @garden.user %>
+        <%= link_to "Update garden", edit_garden_path, class: "btn btn-primary" %>
+      <% else current_user %>
         <%= link_to "Search for similar spaces", gardens_path, class: "btn btn-success"%>
       <% end %>
-      <br>
-      <br>
 
-      <% if current_user == @garden.user %>
-        <%= link_to "update garden", edit_garden_path, class: "btn btn-primary" %>
-      <% end %>
     </div>
 
     <div class="col-sm-12 col-md-1">
     </div>
 
     <div class="col-sm-12 col-md-4">
-          <div>
-            <!-- Shows owner information -->
-            <h4>Owner:</h4>
-            <%= link_to profile_path(@garden.user_id) do %>
-              <%= cl_image_tag @garden.user.photo, width: 300, crop: :fit, class: "avatar large" %>
-              <%= @garden.user.first_name %> <%= @garden.user.last_name %>
-            <% end %>
-            <br>
-            <br>
-          </div>
+
+      <div>
+        <!-- Shows owner information -->
+        <h4>Owner:</h4>
+        <%= link_to profile_path(@garden.user_id) do %>
+          <%= cl_image_tag @garden.user.photo, width: 300, crop: :fill, class: "avatar large" %>
+          <%= @garden.user.first_name %> <%= @garden.user.last_name %>
+        <% end %>
+        <br>
+        <br>
+      </div>
 
           <h4>Participants: <%= Booking.where(garden_id: @garden.id, approved: true).count %> / <%= @garden.capacity %></h4>
           <!-- Commented out for now, can reinitialize
@@ -84,17 +93,24 @@
                  }, class:  "hidden" %>
                 <%= form.button :submit, class: "btn btn-primary", id: "booking-button" %>
               <% end %>
-            <% end %>
+            </div>
+          <% elsif b.approved == false %>
+            <%= simple_form_for(b) do |form| %>
+            <!-- Edit w/ Ajax on Friday -->
+            <%= form.input :approved %>
+            <%= form.button :submit, class: "btn btn-primary", id: "booking-button" %>
           <% end %>
+        <% end %>
+      <% end %>
 
-          <!-- Cannot book if capcity is full -->
-          <% elsif Booking.where(garden_id: @garden.id).count >= @garden.capacity%>
-            <button type="button" class="btn btn-secondary">Fully Booked</button>
+      <!-- Cannot book if capcity is full -->
+      <% elsif Booking.where(garden_id: @garden.id).count >= @garden.capacity%>
+        <button type="button" class="btn btn-secondary">Fully Booked</button>
 
-          <!-- If not the owner, and not booked yet, show participate button -->
-          <% else %>
-            <%= link_to "Participate!", garden_bookings_path(@garden), method: :post, class: "btn btn-primary", id: "participate-btn" %>
-          <% end %>
+      <!-- If not the owner, and not booked yet, show participate button -->
+      <% else %>
+        <%= link_to "Participate!", garden_bookings_path(@garden), method: :post, class: "btn btn-primary", id: "participate-btn"%>
+      <% end %>
     </div>
   </div>
 </div>

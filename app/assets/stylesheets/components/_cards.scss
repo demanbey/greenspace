@@ -31,11 +31,33 @@
   padding: 16px;
 }
 
+// cards on index
+.garden-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
 .card {
   color: black;
+  margin: 10px;
+  border-style: none;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: width 5s;
   &:hover{
     text-decoration: none;
+    transform: scale(1.01);
+    opacity: .95;
   }
+}
+
+.card-img-top {
+  height: 250px;
+}
+
+.card-body {
+  height: 175px;
 }
 
 .card-category {
@@ -117,6 +139,12 @@
   padding: 10px;
   margin: 24px;
   width: 300px;
+}
+
+.card-profile img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
   border-radius: 5px;
 }
 

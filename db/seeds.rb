@@ -46,7 +46,7 @@ print "."
 jerry = User.create!(
   first_name: "Jerry",
   last_name: "deManbey",
-  email: "emailyang@email.com",
+  email: "emailjerry@email.com",
   password: "123456",
   description: "I recently moved to Montreal. I'm really into environmental issues and looking to do my part "
 )
@@ -56,7 +56,7 @@ print "."
 mary = User.create!(
   first_name: "Mary",
   last_name: "Smith",
-  email: "emailsmith@email.com",
+  email: "emailmary@email.com",
   password: "123456",
   description: "Love all things garden! Looking forward to meeting all of you"
 )
@@ -66,7 +66,7 @@ print "."
 martin = User.create!(
   first_name: "Martin",
   last_name: "Lewinski",
-  email: "emaillewinski@email.com",
+  email: "emailmartin@email.com",
   password: "123456",
   description: "New from Poland! Looking to learn english and garden"
 )
@@ -76,7 +76,7 @@ print "."
 claire = User.create!(
   first_name: "Claire",
   last_name: "Clark",
-  email: "emailclark@email.com",
+  email: "emailclaire@email.com",
   password: "123456",
   description: "Love gardening, and looking to grow my own vegetables"
 )
@@ -86,7 +86,7 @@ print "."
 donald = User.create!(
   first_name: "Donald",
   last_name: "Kiney",
-  email: "emailtrump@email.com",
+  email: "emaildonaldemail.com",
   password: "123456",
   description: "Stressful job...need to get away for a little bit"
 )
@@ -94,7 +94,7 @@ donald = User.create!(
 bernie = User.create!(
   first_name: "Bernie",
   last_name: "Wozniak",
-  email: "emailsandy@email.com",
+  email: "emailbernie@email.com",
   password: "123456",
   description: "Into equality, and would love to distribute my harvest"
 )
@@ -104,7 +104,7 @@ print "."
 marc = User.create!(
   first_name: "Marc",
   last_name: "Andre",
-  email: "emailandre@email.com",
+  email: "emailmarc@email.com",
   password: "123456",
   description: "Love getting my hands dirty and would like to beautify an empty space"
 )
@@ -180,8 +180,8 @@ erik_roof.save
 print "."
 
 aaron_garden = Garden.new(
-  name: "Montreal Tomatoe Garden",
-  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore placeat magni numquam, reprehenderit doloribus quia voluptas illum recusandae rem, sunt tenetur commodi earum quisquam quam est in assumenda nesciunt nisi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero vero doloremque dicta, est ipsa quas dolorum, corporis facilis, sed beatae perferendis minus assumenda dolore voluptas quam dignissimos quis quisquam ea!",
+  name: "Tomatoe Garden",
+  description: "Lore4m ipsum dolor sit amet, consectetur adipisicing elit. Tempore placeat magni numquam, reprehenderit doloribus quia voluptas illum recusandae rem, sunt tenetur commodi earum quisquam quam est in assumenda nesciunt nisi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero vero doloremque dicta, est ipsa quas dolorum, corporis facilis, sed beatae perferendis minus assumenda dolore voluptas quam dignissimos quis quisquam ea!",
   capacity: 10,
   location: "73 Magazine Street, Cambridge, MA",
   size: "1 acre",
@@ -300,7 +300,7 @@ apt_backyard.save
 print "."
 
 puts "...done!"
-puts "Creating bookings..."
+print "Creating bookings..."
 
 book1 = Booking.new(
   garden_id: 112,
