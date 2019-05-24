@@ -13,11 +13,6 @@ initMapbox();
 // }
 
 
-// Wrap every letter in a span
-$('.ml12').each(function(){
-  $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
-});
-
 const clicked = document.querySelector("#booking-button")
 if (clicked !== null) {
   clicked.addEventListener("click", (event) => {
@@ -27,6 +22,11 @@ if (clicked !== null) {
 // add ajax request for booking update
   })
 }
+
+// Wrap every letter in a span
+$('.ml12').each(function(){
+  $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
+});
 
 if (anime){
  anime.timeline({loop: true})
@@ -45,9 +45,9 @@ if (anime){
     translateX: [0,-30],
     opacity: [1,0],
     easing: "easeInExpo",
-    duration: 1100,
+    duration: 3000,
     delay: function(el, i) {
-      return 100 + 30 * i;
+      return 200 + 10 * i;
     }
   });
 }
