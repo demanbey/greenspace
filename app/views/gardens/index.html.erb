@@ -18,10 +18,10 @@
   <div class="row">
     <div class="col-sm-12 col-md-7">
       <% @gardens.each do |garden| %>
-        <%= link_to(garden_path(garden.id), class: "card") do %>
-          <div class="card-product">
+        <%= link_to(garden_path(garden.id), class: "") do %>
+          <div class="card" style="width: 18rem;">
             <%= cl_image_tag garden.photo, height: 600, width: 400, crop: :fill unless garden.photo.blank? %>
-            <div class="card-product-infos">
+            <div class="card-body">
               <h2><strong><%= garden.name %></strong></h2>
               <p>Type of land available: <%= garden.category %></p>
               <p>Size: <%= garden.size %></p>
