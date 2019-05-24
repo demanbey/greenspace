@@ -10,20 +10,21 @@
   padding: 8px 20px !important;
 }
 
-// .btn-warning {
-//   background-color: rgba(255, 255, 255, 0.8) !important;
-//   border-style: none;
+.btn-warning {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-style: none;
+  border-radius: 5px;
+  color: rgba(0, 0, 0, 0.3);
+  &:hover {
+    color: gray;
+  }
+}
+
+// .btn-success {
 //   border-radius: 5px;
-//   color: rgba(0, 0, 0, 0.3);
-//   &:hover {
-//     color: gray;
-//   }
+//   background-color: #348498 !important;
+//   color: white;
+//   border: none;
+//   padding: 15px;
 // }
 
-.btn-success {
-  border-radius: 5px;
-  background-color: #348498 !important;
-  color: white;
-  border: none;
-  padding: 15px;
-}
