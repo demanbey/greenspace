@@ -39,7 +39,7 @@
       <% if current_user == @garden.user %>
         <%= link_to "Update garden", edit_garden_path, class: "btn btn-primary" %>
       <% else current_user %>
-        <%= link_to "Search for similar spaces", gardens_path, class: "btn btn-success"%>
+        <%= link_to "Search for similar spaces", gardens_path, class: "btn btn-secondary"%>
       <% end %>
 
     </div>
