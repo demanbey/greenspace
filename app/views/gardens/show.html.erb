@@ -59,7 +59,7 @@
         <br>
         <br>
       </div>
-
+        <div>
           <h4>Participants: <%= Booking.where(garden_id: @garden.id, approved: true).count %> / <%= @garden.capacity %></h4>
           <!-- Commented out for now, can reinitialize
           <%= @garden.user.description unless @garden.user.description.nil? %> -->
@@ -78,13 +78,14 @@
 
           <!-- If owner, can approve request and review bookings -->
           <% elsif current_user.id == @garden.user_id%>
+            <div class= "approved-profile">
             <% @garden.bookings.each do |b| %>
               <% if b.approved == true %>
                   <%= link_to profile_path(b.user_id) do %>
                     <%= cl_image_tag b.user.photo, width: 300, crop: :fit, class: "avatar large" %>
                     <%= b.user.first_name %> <%= b.user.last_name %>
                   <% end %>
-                </div>
+            </div>
               <% elsif b.approved == false %>
                 <%= simple_form_for(b) do |form| %>
                 <!-- Edit w/ Ajax on Friday -->
@@ -93,7 +94,6 @@
                  }, class:  "hidden" %>
                 <%= form.button :submit, class: "btn btn-primary", id: "booking-button" %>
               <% end %>
-            </div>
           <% elsif b.approved == false %>
             <%= simple_form_for(b) do |form| %>
             <!-- Edit w/ Ajax on Friday -->
@@ -102,7 +102,6 @@
           <% end %>
         <% end %>
       <% end %>
-
       <!-- Cannot book if capcity is full -->
       <% elsif Booking.where(garden_id: @garden.id).count >= @garden.capacity%>
         <button type="button" class="btn btn-secondary">Fully Booked</button>
@@ -111,6 +110,7 @@
       <% else %>
         <%= link_to "Participate!", garden_bookings_path(@garden), method: :post, class: "btn btn-primary", id: "participate-btn"%>
       <% end %>
+        </div>
     </div>
   </div>
 </div>
