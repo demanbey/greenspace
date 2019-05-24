@@ -36,7 +36,6 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      binding.pry
       redirect_to garden_path(@booking.garden) # ! double check
     else
       render :edit
