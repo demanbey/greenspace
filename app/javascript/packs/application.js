@@ -36,7 +36,7 @@ if (anime){
     translateZ: 0,
     opacity: [0,1],
     easing: "easeOutExpo",
-    duration: 1200,
+    duration: 4200,
     delay: function(el, i) {
       return 500 + 30 * i;
     }
@@ -45,9 +45,9 @@ if (anime){
     translateX: [0,-30],
     opacity: [1,0],
     easing: "easeInExpo",
-    duration: 3000,
+    duration: 2000,
     delay: function(el, i) {
-      return 200 + 10 * i;
+      return 200 + 30 * i;
     }
   });
 }
